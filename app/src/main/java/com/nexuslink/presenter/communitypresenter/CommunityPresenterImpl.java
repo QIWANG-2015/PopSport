@@ -79,7 +79,7 @@ public class CommunityPresenterImpl implements CommunityPresenter {
             @Override
             public void onFinish(Object obj) {
                 mCommunityView.showSuccess("刷新成功");
-                mCommunityView.addMsgArticle((List<CommunityInfo.CommunityBean>) obj);
+                mCommunityView.addMsgArticle((List<CommunityInfo.ArticleBean>) obj);
             }
 
             @Override

@@ -52,7 +52,7 @@ public class CommunityFragment extends Fragment implements CommunityView {
     "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1303680113,133301350&fm=116&gp=0.jpg",
     "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1799345195,2075280808&fm=116&gp=0.jpg"};
     //===============================================一数据
-    private List<CommunityInfo.CommunityBean> data = new ArrayList<>();
+    private List<CommunityInfo.ArticleBean> data = new ArrayList<>();
     private AppCompatActivity compatActivity;
     private CommunityRecyclerAdapter adapter;
     //数据库操作
@@ -64,24 +64,9 @@ public class CommunityFragment extends Fragment implements CommunityView {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         compatActivity = (AppCompatActivity) getActivity();
-        initData();
     }
 
-    private void initData() {
-        for(int i =0;i<10;i++){
-            CommunityInfo.CommunityBean bean = new CommunityInfo.CommunityBean();
-            bean.setUserImageUrl(IMAGE_URL[i%IMAGE_URL.length]);
-            bean.setUserName("张兴锐");
-            bean.setUserLevel(19);
-            bean.setText("今天和一群傻逼打牌");
-            List<String> images = new ArrayList<>();
-            for(int j=0;j<11;j++){
-                images.add(IMAGE_URL[j%IMAGE_URL.length]);
-            }
-            bean.setImages(images);
-            data.add(bean);
-        }
-    }
+
 
     @Nullable
     @Override
@@ -141,7 +126,7 @@ public class CommunityFragment extends Fragment implements CommunityView {
     }
 
     @Override
-    public void addMsgArticle(List<CommunityInfo.CommunityBean> list) {
+    public void addMsgArticle(List<CommunityInfo.ArticleBean> list) {
         adapter.addItems(0,list);
     }
 

@@ -105,7 +105,7 @@ public class CommunityModelImpl implements CommunityModel{
                         @Override
                         public void onNext(CommentInfo commentInfo) {
                             //进行flag判断然后回调
-                            listener.onFinish(commentInfo.getCommunityBean());
+                            listener.onFinish(commentInfo.getComments());
                         }
                     });
         }else{

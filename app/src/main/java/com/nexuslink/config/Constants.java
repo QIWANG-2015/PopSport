@@ -1,5 +1,7 @@
 package com.nexuslink.config;
 
+import okhttp3.MediaType;
+
 /**
  * Created by 猿人 on 2017/1/14.
  */
@@ -24,6 +26,11 @@ public class Constants {
     //===============================================Tba状态改变
     public static final int VISIBLE = 1;
     public static final int INVISIBLE = 0;
+    //===============================================网络请求flag
+    public static final int SUCCESS = 200;
+    public static final int FAILED = 500;
+    //===============================================媒体类型
+    public static final MediaType MULTIPART_FORM_DATA = MediaType.parse("multipart/form-data");
 
 }
 

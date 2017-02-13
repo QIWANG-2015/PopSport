@@ -1,7 +1,6 @@
 package com.nexuslink.config;
 
 
-
 import com.nexuslink.User;
 import com.nexuslink.model.data.CommentInfo;
 import com.nexuslink.model.data.CommunityInfo;
@@ -11,10 +10,13 @@ import com.nexuslink.model.data.FriendInfo;
 import com.nexuslink.model.data.UserInfo;
 import com.nexuslink.model.data.WeatherInfo;
 
+import okhttp3.RequestBody;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 import rx.Observable;
 
@@ -39,6 +41,11 @@ public interface Api {
     @POST("user/login")
     Observable<User> logIn(@Field("uName")String uName, @Field("uPassword")String uPassword);
 
+    //更改头像
+    @Multipart
+    @POST("img/changeImg")
+    Observable<String> changUserImage(@Part("uId") int uerId, @Part("uploadFile\"; filename=\"test.jpg\"") RequestBody file);
+
     //获取好友的个人信息
     @FormUrlEncoded
     @POST("friend/getInfo")
@@ -50,7 +57,7 @@ public interface Api {
     Observable<UserInfo> getUserInfo(@Field("uId")int uId);
 
     //发表小话题
-    //还差图片
+    //还差图片 后台人员还未确定方案
     @FormUrlEncoded
     @POST("article/publish")
     Observable<Integer> publishArtice(@Field("uId") int userId, @Field("aText") String text);

@@ -50,6 +50,10 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="ACCESS_FINE_LOCATION" />
+    <!--图片相机处理-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.sensor.stepcounter"
@@ -101,14 +105,11 @@
             android:name=".service.StepService"
             android:process=":remote" />
 
-        <activity android:name=".ui.activity.MainViewActivity"
-            android:windowSoftInputMode="adjustPan"
-            >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".ui.activity.MainViewActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".WBShareActivity"
@@ -143,16 +144,18 @@
         <!-- 计步 -->
         <service android:name="com.amap.api.location.APSService" />
 
-
-
         <activity android:name=".ui.activity.WriteMsgActivity" />
         <!-- 图片跳转Activity -->
-        <activity android:name=".ui.activity.ViewImageShowActivity"
-            ></activity>
- 
-        <activity android:name=".ui.activity.FriendInfoActivity"/>
-        <activity android:name=".ui.activity.AlterActivity"/>
+        <activity android:name=".ui.activity.ViewImageShowActivity" />
+        <activity android:name=".ui.activity.FriendInfoActivity" />
+        <activity android:name=".ui.activity.AlterActivity" />
+        <activity android:name=".ui.ImageActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
